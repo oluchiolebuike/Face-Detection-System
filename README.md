@@ -38,14 +38,6 @@ pip install opencv-python
 
 
 
-## Project Structure
-
-
-face-detection/
-|
-|-- face_detection.py
-|-- README.txt
-
 
 
 ## How to Run
