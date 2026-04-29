@@ -1,6 +1,6 @@
 import cv2
 
-# load pre-trained Haar Cascade face detector
+# load pre-trained haar Cascade face detector
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 )
