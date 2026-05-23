@@ -9,8 +9,6 @@ Tux Tracer uses MediaPipe to map 468 face landmarks (decided to set it to 1 face
 
 The stencil of Tux isn't just some cool penguin (that took me forever to draw) — it's 3 years of Computer Science completed at UCT living inside one drawing.
 
-Every line on Tux was drawn with something I actually learned, struggled through and eventually understood:
-
 - **First year** — recursion, the idea that a function can call itself and somehow that's not chaos
 - **Second year** — data structures and algorithms: binary heaps, AVL trees, Bellman-Ford, Dijkstra's shortest path
 - **Databases** — hidden at the bottom of Tux's feet, a quiet little love note:
