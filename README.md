@@ -1,36 +1,101 @@
-## FACE DETECTION SYSTEM (OPEN-CV)
+# Tux Tracer 🐧🩷
+Real-time face, hand, and body tracking — stamped with your own hand-drawn art.
 
+Tux Tracer uses MediaPipe to map 468 face landmarks, 21 hand dots per hand, and 33 body pose points onto your webcam feed. Every landmark is replaced with a hand-drawn Tux stamp instead of a boring dot.
 
-## Overview
+---
 
-This project is a simple real-time face detection system built using Python and OpenCV.
+## The Drawing
 
-It detects human faces in images or live webcam feed and draws bounding boxes around them. The system does not identify or recognise individuals — it only detects the presence and location of faces in a frame.
+The stencil of Tux isn't just a cute penguin — it's three years of computer science living inside one drawing.
 
-This project is designed for learning computer vision fundamentals and real-time image processing.
+Every line on Tux was drawn with something I actually learned, struggled through, and eventually understood:
 
+- **First year** — recursion, the idea that a function can call itself and somehow that's not chaos
+- **Second year** — data structures and algorithms: binary heaps, AVL trees, Bellman-Ford, Dijkstra's shortest path
+- **Databases** — hidden at the bottom of Tux's feet, a quiet little love note:
+  ```sql
+  SELECT * FROM ScienceFaculty WHERE Dept = 'Comp Sci' AND Year = 'Final'
+  ```
+- **Statistics** — z-tests tucked into his wings
+- **Networks** — IP addresses scattered across his body
+- **PCP (Parallel & Concurrent Programming)** — synchronisation and locks woven into his outline
+- **Operating Systems** — paging algorithms from OSI hiding in the details
 
+Three years of late nights, confusing lectures and concepts that finally clicked — all drawn by hand into one little penguin who now dances across your face in real time.
 
-## Features
+---
 
-- Real-time face detection using webcam
-- Image-based face detection support (optional extension)
-- Bounding box overlay on detected faces
-- Lightweight OpenCV-based implementation
-- No facial recognition or identity tracking
+## Requirements
 
+**Python version:** 3.11.x (MediaPipe does not support 3.12+)
 
+**MediaPipe version:** 0.10.14 (newer versions break the solutions API)
 
+**Dependencies:**
+```
+opencv-python
+mediapipe==0.10.14
+numpy
+```
 
-## How It Works
+Install everything at once:
+```cmd
+pip install opencv-python mediapipe==0.10.14 numpy
+```
 
+**Files needed:**
+- `tux_tracer.py` — the main script
+- `tux.png` — the hand-drawn stamp, PNG with transparent background works best
 
-1. The webcam captures live video frames
-2. Each frame is converted to grayscale
-3. Haar Cascade classifier detects facial regions
-4. Bounding boxes are drawn around detected faces
-5. Output is displayed in real time
+---
 
+## Setup
 
+**1. Make sure you're on Python 3.11:**
+```cmd
+python --version
+```
 
+**2. Create a virtual environment:**
+```cmd
+py -3.11 -m venv tux_trace-env
+```
 
+**3. Activate it (Command Prompt — recommended over PowerShell):**
+```cmd
+tux_trace-env\Scripts\activate
+```
+
+**4. Install dependencies:**
+```cmd
+pip install opencv-python mediapipe==0.10.14 numpy
+```
+
+**5. Drop `tux.png` in the same folder as `tux_tracer.py`, then run:**
+```cmd
+python tux_tracer.py
+```
+
+Press `Q` or click the X button to close.
+
+> **VS Code tip:** if your terminal is PowerShell, switch to Command Prompt via `Ctrl + Shift + P` → Terminal: Select Default Profile → Command Prompt
+
+---
+
+## How it works
+
+Instead of rendering MediaPipe's default dots and lines, Tux Tracer stamps your drawing at every detected landmark point in real time. The face mesh alone has 468 points — so Tux shows up everywhere.
+
+To swap the drawing out, replace `tux.png` with any PNG and update this line:
+```python
+tux = cv2.imread("your_drawing.png", cv2.IMREAD_UNCHANGED)
+```
+
+---
+
+## Built with
+
+- [OpenCV](https://opencv.org/) — webcam feed and rendering
+- [MediaPipe](https://mediapipe.dev/) — landmark detection and tracking
+- [NumPy](https://numpy.org/) — image blending
