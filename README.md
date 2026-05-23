@@ -1,4 +1,4 @@
-# Tux Tracer 🐧🩷
+# Pink Tux Tracer 🐧🩷
 Real-time face stamped with your own hand-drawn art.
 
 Tux Tracer uses MediaPipe to map 468 face landmarks, 21 hand dots per hand and 33 body pose points onto your webcam feed. Every landmark is replaced with a hand-drawn Tux stamp instead of a boring dot.
