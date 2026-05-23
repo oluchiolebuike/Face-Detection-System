@@ -4,7 +4,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-# add tux with all three years of concepts drawn as his trace
+# add tux with all 3 years of concepts drawn as his trace
 # tux = cv2.imread("tux.png", cv2.IMREAD_UNCHANGED)
 
 def tint_pink(img):
@@ -76,15 +76,15 @@ while True:
     #    mp_draw.draw_landmarks(frame, results.face_landmarks, mp_holistic.FACEMESH_CONTOURS, pink_dot, pink_dot)
 
     # drawing hand landmarks 
-    # if results.left_hand_landmarks:
-    #    mp_draw.draw_landmarks(frame, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS, pink_line, pink_dot)
+     if results.left_hand_landmarks:
+        mp_draw.draw_landmarks(frame, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS, pink_line, pink_dot)
 
-    # if results.right_hand_landmarks:
-    #    mp_draw.draw_landmarks(frame, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS, pink_line, pink_dot)
+     if results.right_hand_landmarks:
+        mp_draw.draw_landmarks(frame, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS, pink_line, pink_dot)
 
     # then body pose like shoulders, elbows, wrists etc. 
-    # if results.pose_landmarks:
-    #    mp_draw.draw_landmarks(frame, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS, pink_line, pink_dot)
+     if results.pose_landmarks:
+        mp_draw.draw_landmarks(frame, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS, pink_line, pink_dot)
 
     
 
