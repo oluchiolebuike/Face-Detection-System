@@ -17,7 +17,7 @@ Every line on Tux was drawn with something I actually learned, struggled through
   ```sql
   SELECT * FROM ScienceFaculty WHERE Dept = 'Comp Sci' AND Year = 'Final'
   ```
-- **Z test season** — z-tests tucked into his wings
+- **Z test season** — z-test attempt 158 on his crown
 - - **PCP (Parallel & Concurrent Programming)** — synchronisation and locks woven into his outline
 - **Networks** — IP addresses scattered across his body
 - **Operating Systems** — paging algorithms from OSI hiding in the details
