@@ -1,7 +1,7 @@
 # Pink Tux Tracer 🐧🩷
 Tux Tracer — a face detection system that maps Linux Tux across your face in real time. Hand-drawn with 3 years of Computer Science concepts from UCT and stamped at every landmark point. In pink, obviously. 🐧🩷
 
-Tux Tracer uses MediaPipe to map 468 face landmarks, 21 hand dots per hand and 33 body pose points onto your webcam feed. Every landmark is replaced with a hand-drawn Tux stamp instead of a boring dot.
+Tux Tracer uses MediaPipe to map 468 face landmarks (decided to set it to 1 face landmark), 21 hand dots per hand and 33 body pose points onto your webcam feed. Every landmark is replaced with a hand-drawn Tux stamp instead of a boring dot.
 
 ---
 
