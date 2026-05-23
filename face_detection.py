@@ -1,43 +1,45 @@
+# pip install opencv-python
+# pip install mediapipe
 import cv2
+import mediapipe as mp
 
 # load pre-trained haar Cascade face detector
-face_cascade = cv2.CascadeClassifier(
-    cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
-)
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
-# start webcam
+# start webcam, try 1 or 2 if you have multiple cameras
 cap = cv2.VideoCapture(0)
+
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
 
 while True:
     # read frame
     ret, frame = cap.read()
 
-    # convert to grayscale (required for detection)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-    # detect faces
-    faces = face_cascade.detectMultiScale(
-        gray,
-        scaleFactor=1.1,
-        minNeighbors=5,
-        minSize=(30, 30)
-    )
-
-    # draw rectangles around faces
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame,
-                      (x, y),
-                      (x + w, y + h),
-                      (255, 0, 0),
-                      2)
-
-    # show output
-    cv2.imshow("Face Detection", frame)
-
-    # press Q to quit
-    if cv2.waitKey(1) & 0xFF == ord("q"):
+    # cam might drop frames occasionally, don't crash when it does
+    if not ret or frame is None:
+        print("Error: Failed to read frame.")
         break
 
-# cleanup
+    # face detector only works on grayscale 
+    # color info just slows it down
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100,100)) # 30x30
+
+    if len(faces) > 0:
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (203, 192, 255), 2) # changed the colour colour to pink :0
+
+    cv2.imshow("Face Detection", frame)
+
+    # close with Q or the X button
+    # close with Q or the X button
+    if cv2.waitKey(1) & 0xFF == ord("q") or cv2.getWindowProperty("Face Detection", cv2.WND_PROP_VISIBLE) < 1:
+        break
+    
+
+# cleanup to release cam so other apps can use it again
 cap.release()
 cv2.destroyAllWindows()
