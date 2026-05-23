@@ -3,14 +3,22 @@
 import cv2
 import mediapipe as mp
 
+# track face hands and body pose together
+mp_holistic = mp.solutions.holistic
+mp_draw = mp.solutions.drawing_utils
+holistic = mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+
+cap = cv2.VideoCapture(0)
+
+
 # load pre-trained haar Cascade face detector
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+# face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
 # start webcam, try 1 or 2 if you have multiple cameras
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
-    print("Error: Could not open webcam.")
+    print("Could not open webcam.")
     exit()
 
 while True:
@@ -26,7 +34,7 @@ while True:
     # color info just slows it down
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100,100)) # 30x30
+   # faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100,100)) # 30x30
 
     if len(faces) > 0:
         for (x, y, w, h) in faces:
