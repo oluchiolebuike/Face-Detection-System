@@ -5,7 +5,18 @@ import mediapipe as mp
 import numpy as np
 
 # add tux with all three years of concepts drawn as his trace
+# tux = cv2.imread("tux.png", cv2.IMREAD_UNCHANGED)
+
+def tint_pink(img):
+    # change colour of my tux transparent image 
+    result = img.copy()
+    result[:, :, 0] = 203  # B
+    result[:, :, 1] = 192  # G
+    result[:, :, 2] = 255  # R
+    return result
+
 tux = cv2.imread("tux.png", cv2.IMREAD_UNCHANGED)
+tux = tint_pink(tux)  # made tux pink :)
 
 def overlay_image(frame, img, x, y, size=20):
     img = cv2.resize(img, (size, size))
@@ -53,10 +64,11 @@ while True:
 
     if results.face_landmarks:
         h, w, _ = frame.shape
-        for landmark in results.face_landmarks.landmark:
-            x = int(landmark.x * w)
-            y = int(landmark.y * h)
-            frame = overlay_image(frame, tux, x - 10, y - 10, size=15)
+        for i, landmark in enumerate(results.face_landmarks.landmark):
+            if i % 468== 0:
+                x = int(landmark.x * w)
+                y = int(landmark.y * h)
+                frame = overlay_image(frame, tux, x - 150, y - 150, size=300)
 
     # drawing mesh around face 
     # dot cloud on face
