@@ -1,5 +1,5 @@
 # Pink Tux Tracer 🐧🩷
-Real-time face stamped with your own hand-drawn art.
+
 
 Tux Tracer uses MediaPipe to map 468 face landmarks, 21 hand dots per hand and 33 body pose points onto your webcam feed. Every landmark is replaced with a hand-drawn Tux stamp instead of a boring dot.
 
@@ -7,9 +7,9 @@ Tux Tracer uses MediaPipe to map 468 face landmarks, 21 hand dots per hand and 3
 
 ## The Drawing
 
-The stencil of Tux isn't just a cute penguin — it's three years of computer science living inside one drawing.
+The stencil of Tux isn't just some cool penguin (that took me forever to draw) — it's 3 years of Computer Science completed at UCT living inside one drawing.
 
-Every line on Tux was drawn with something I actually learned, struggled through, and eventually understood:
+Every line on Tux was drawn with something I actually learned, struggled through and eventually understood:
 
 - **First year** — recursion, the idea that a function can call itself and somehow that's not chaos
 - **Second year** — data structures and algorithms: binary heaps, AVL trees, Bellman-Ford, Dijkstra's shortest path
@@ -17,9 +17,9 @@ Every line on Tux was drawn with something I actually learned, struggled through
   ```sql
   SELECT * FROM ScienceFaculty WHERE Dept = 'Comp Sci' AND Year = 'Final'
   ```
-- **Statistics** — z-tests tucked into his wings
+- **Z test season** — z-tests tucked into his wings
+- - **PCP (Parallel & Concurrent Programming)** — synchronisation and locks woven into his outline
 - **Networks** — IP addresses scattered across his body
-- **PCP (Parallel & Concurrent Programming)** — synchronisation and locks woven into his outline
 - **Operating Systems** — paging algorithms from OSI hiding in the details
 
 Three years of late nights, confusing lectures and concepts that finally clicked — all drawn by hand into one little penguin who now dances across your face in real time.
