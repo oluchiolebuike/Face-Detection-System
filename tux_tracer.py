@@ -1,14 +1,12 @@
-# pip install opencv-python
-# pip install mediapipe
 import cv2
 import mediapipe as mp
 import numpy as np
 
-# add tux with all 3 years of concepts drawn as his trace
+# add tux with all 3 years of concepts drawn as his trace outline
 # tux = cv2.imread("tux.png", cv2.IMREAD_UNCHANGED)
 
 def tint_pink(img):
-    # change colour of my tux transparent image 
+    # change colour of my tux transparent image to pink
     result = img.copy()
     result[:, :, 0] = 203  # B
     result[:, :, 1] = 192  # G
@@ -86,8 +84,6 @@ while True:
      if results.pose_landmarks:
         mp_draw.draw_landmarks(frame, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS, pink_line, pink_dot)
 
-    
-
     # face detector only works on grayscale 
     # color info just slows it down
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -98,7 +94,7 @@ while True:
    #     for (x, y, w, h) in faces:
    #         cv2.rectangle(frame, (x, y), (x + w, y + h), (203, 192, 255), 2) # changed the colour colour to pink :0
 
-    cv2.imshow("Tux Tracer", frame)
+    cv2.imshow("Pink Tux Tracer", frame)
 
     # close with Q or the X button
     if cv2.waitKey(1) & 0xFF == ord("q") or cv2.getWindowProperty("Tux Tracer", cv2.WND_PROP_VISIBLE) < 1:
