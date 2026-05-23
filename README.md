@@ -22,7 +22,7 @@ Every line on Tux was drawn with something I actually learned, struggled through
 - **Networks** — IP addresses scattered across his body
 - **Operating Systems** — paging algorithms from OSI hiding in the details
 
-Three years of late nights, confusing lectures and concepts that finally clicked — all drawn by hand into one little penguin who now dances across your face in real time.
+Three years of late nights, confusing lectures and concepts that finally clicked — all drawn by hand into one little linux penguin who now dances across your face in real time.
 
 ---
 
